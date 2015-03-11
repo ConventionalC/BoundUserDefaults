@@ -394,6 +394,7 @@
 				D00D0AD01AB0CA08002C55A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D00D0AD11AB0CA08002C55A3 /* Build configuration list for PBXNativeTarget "BoundUserDefaultsTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +403,7 @@
 				D00D0AD31AB0CA08002C55A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
