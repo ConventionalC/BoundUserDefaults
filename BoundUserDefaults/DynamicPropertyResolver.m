@@ -64,7 +64,7 @@ void setIMP(DynamicPropertyResolver *self, SEL cmd, id obj)
     NSString *property = NSStringFromSelector(aSEL);
     BOOL isSet = [property hasPrefix:@"set"];
     if(isSet) property = [self stripSet:property];
-    //TODO: this could be generisized for all primitives
+    //TODO: this could be generalized for all primitives
     //BOOL isDouble = [@"Td" isEqualToString:[self typeNameStringForProperty:property inClass:self.class]];
     
     IMP imp;

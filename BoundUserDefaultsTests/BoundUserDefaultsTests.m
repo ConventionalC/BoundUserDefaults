@@ -27,6 +27,9 @@
     defaults.testString = @"Test Value";
     XCTAssertEqualObjects(@"Test Value", defaults.testString);
     XCTAssertEqualObjects(@"Test Value", [NSUserDefaults.standardUserDefaults objectForKey:@"testString"]);
+    [NSUserDefaults.standardUserDefaults setObject:@"Test Value 2" forKey:@"testString"];
+    XCTAssertEqualObjects(@"Test Value 2", defaults.testString);
+
 //    defaults.testDouble = 0.383;
 //    XCTAssertEqual(0.383, defaults.testDouble);
 //    XCTAssertEqual(0.383, [NSUserDefaults.standardUserDefaults doubleForKey:@"testDouble"]);
