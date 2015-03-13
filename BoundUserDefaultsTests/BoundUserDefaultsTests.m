@@ -7,6 +7,7 @@
 
 @interface TestBoundDefaults : BoundUserDefaults
     @property(nonatomic, assign) NSString *testString;
+    @property(nonatomic, assign) double    testDouble;
 @end
 
 @implementation BoundUserDefaultsTests
@@ -15,6 +16,7 @@
 {
     [super setUp];
     [NSUserDefaults resetStandardUserDefaults];
+    [NSUserDefaults.standardUserDefaults setObject:nil forKey:@"testString"];
 }
 
 -(void)testBoundUserDefaults
@@ -24,18 +26,14 @@
     XCTAssertNil(defaults.testString);
     defaults.testString = @"Test Value";
     XCTAssertEqualObjects(@"Test Value", defaults.testString);
-}
-
--(void)testBoundUserDefaultsPerformance
-{
-    TestBoundDefaults *defaults = TestBoundDefaults.new;
-    [self measureBlock:^{
-        for(int i=0; i<1000; i++)
-            defaults.testString = @"Test Value";
-    }];
+    XCTAssertEqualObjects(@"Test Value", [NSUserDefaults.standardUserDefaults objectForKey:@"testString"]);
+//    defaults.testDouble = 0.383;
+//    XCTAssertEqual(0.383, defaults.testDouble);
+//    XCTAssertEqual(0.383, [NSUserDefaults.standardUserDefaults doubleForKey:@"testDouble"]);
 }
 
 @end
 
 @implementation TestBoundDefaults
+    @dynamic testString, testDouble;
 @end

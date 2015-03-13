@@ -3,6 +3,19 @@
 
 @implementation DynamicPropertyResolver
 
+// override
+-(id)getDynamicProperty:(NSString*)propertyName
+{
+    NSAssert(NO, @"Subclasses should override this method");
+    return nil;
+}
+
+// override
+-(void)setDynamicProperty:(NSString*)propertyName value:(id)value
+{
+    NSAssert(NO, @"Subclasses should override this method");
+}
+
 //TODO: there should be a better way to get from a setter name to a property
 +(NSString*)stripSet:(NSString*)s //remove ^set
 {
@@ -15,13 +28,13 @@
 id getIMP(DynamicPropertyResolver *self, SEL cmd);
 id getIMP(DynamicPropertyResolver *self, SEL cmd)
 {
-    return [self.delegate getDynamicProperty:NSStringFromSelector(cmd)];
+    return [self getDynamicProperty:NSStringFromSelector(cmd)];
 }
 
 //TODO pass property name instead of calculating it again
 void setIMP(DynamicPropertyResolver *self, SEL cmd, id obj)
 {
-    return [self.delegate setDynamicProperty:[DynamicPropertyResolver stripSet:NSStringFromSelector(cmd)] value:obj];
+    return [self setDynamicProperty:[DynamicPropertyResolver stripSet:NSStringFromSelector(cmd)] value:obj];
 }
 
 +(NSString*)typeNameStringForProperty:(NSString*)propertyName inClass:(Class)c
@@ -52,7 +65,7 @@ void setIMP(DynamicPropertyResolver *self, SEL cmd, id obj)
     BOOL isSet = [property hasPrefix:@"set"];
     if(isSet) property = [self stripSet:property];
     //TODO: this could be generisized for all primitives
-    BOOL isDouble = [@"Td" isEqualToString:[self typeNameStringForProperty:property inClass:self.class]];
+    //BOOL isDouble = [@"Td" isEqualToString:[self typeNameStringForProperty:property inClass:self.class]];
     
     IMP imp;
     const char* types;
@@ -66,7 +79,7 @@ void setIMP(DynamicPropertyResolver *self, SEL cmd, id obj)
     else
     {
         imp = (IMP)getIMP;
-        types = isDouble ? "d@:@" : "@@:@"; //TODO: use @encode() instead
+        types = "@@:@"; //TODO: use @encode() instead
     }
     
     class_addMethod(self.class, aSEL, imp, types);
@@ -78,12 +91,12 @@ void setIMP(DynamicPropertyResolver *self, SEL cmd, id obj)
 
 -(id)valueForKey:(NSString*)key
 {
-    return [self.delegate getDynamicProperty:key];
+    return [self getDynamicProperty:key];
 }
 
 -(void)setValue:(id)value forKey:(NSString*)key
 {
-    [self.delegate setDynamicProperty:key value:value];
+    [self setDynamicProperty:key value:value];
 }
 
 @end
