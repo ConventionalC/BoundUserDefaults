@@ -1,40 +1,42 @@
-//
-//  BoundUserDefaultsTests.m
-//  BoundUserDefaultsTests
-//
-//  Created by Peter DeWeese on 3/11/15.
-//  Copyright (c) 2015 DeWeese Consulting, LLC. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <BoundUserDefaults/BoundUserDefaults.h>
 
 @interface BoundUserDefaultsTests : XCTestCase
+@end
 
+@interface TestBoundDefaults : BoundUserDefaults
+    @property(nonatomic, assign) NSString *testString;
+    @property(nonatomic, assign) double    testDouble;
 @end
 
 @implementation BoundUserDefaultsTests
 
-- (void)setUp {
++(void)setUp
+{
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    [NSUserDefaults resetStandardUserDefaults];
+    [NSUserDefaults.standardUserDefaults setObject:nil forKey:@"testString"];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+-(void)testBoundUserDefaults
+{
+    TestBoundDefaults *defaults = TestBoundDefaults.new;
+    XCTAssertEqualObjects(defaults.userDefaults, NSUserDefaults.standardUserDefaults);
+    XCTAssertNil(defaults.testString);
+    defaults.testString = @"Test Value";
+    XCTAssertEqualObjects(@"Test Value", defaults.testString);
+    XCTAssertEqualObjects(@"Test Value", [NSUserDefaults.standardUserDefaults objectForKey:@"testString"]);
+    [NSUserDefaults.standardUserDefaults setObject:@"Test Value 2" forKey:@"testString"];
+    XCTAssertEqualObjects(@"Test Value 2", defaults.testString);
+
+//    defaults.testDouble = 0.383;
+//    XCTAssertEqual(0.383, defaults.testDouble);
+//    XCTAssertEqual(0.383, [NSUserDefaults.standardUserDefaults doubleForKey:@"testDouble"]);
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
+@end
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
-
+@implementation TestBoundDefaults
+    @dynamic testString, testDouble;
 @end

@@ -10,6 +10,10 @@
 		D00D0ABE1AB0CA08002C55A3 /* BoundUserDefaults.h in Headers */ = {isa = PBXBuildFile; fileRef = D00D0ABD1AB0CA08002C55A3 /* BoundUserDefaults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D00D0AC41AB0CA08002C55A3 /* BoundUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00D0AB81AB0CA08002C55A3 /* BoundUserDefaults.framework */; };
 		D00D0ACB1AB0CA08002C55A3 /* BoundUserDefaultsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D00D0ACA1AB0CA08002C55A3 /* BoundUserDefaultsTests.m */; };
+		D00D0AD61AB0CC63002C55A3 /* DynamicPropertyResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = D00D0AD41AB0CC63002C55A3 /* DynamicPropertyResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D00D0AD71AB0CC63002C55A3 /* DynamicPropertyResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = D00D0AD51AB0CC63002C55A3 /* DynamicPropertyResolver.m */; };
+		D00D0AE11AB1092E002C55A3 /* BoundUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D00D0AE01AB1092E002C55A3 /* BoundUserDefaults.m */; };
+		D00D0AE31AB3703E002C55A3 /* BoundUserDefaults.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D00D0AE21AB3703E002C55A3 /* BoundUserDefaults.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		D00D0AC31AB0CA08002C55A3 /* BoundUserDefaultsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoundUserDefaultsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D00D0AC91AB0CA08002C55A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00D0ACA1AB0CA08002C55A3 /* BoundUserDefaultsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoundUserDefaultsTests.m; sourceTree = "<group>"; };
+		D00D0AD41AB0CC63002C55A3 /* DynamicPropertyResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicPropertyResolver.h; sourceTree = "<group>"; };
+		D00D0AD51AB0CC63002C55A3 /* DynamicPropertyResolver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicPropertyResolver.m; sourceTree = "<group>"; };
+		D00D0AE01AB1092E002C55A3 /* BoundUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoundUserDefaults.m; sourceTree = "<group>"; };
+		D00D0AE21AB3703E002C55A3 /* BoundUserDefaults.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BoundUserDefaults.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +61,7 @@
 		D00D0AAE1AB0CA08002C55A3 = {
 			isa = PBXGroup;
 			children = (
+				D00D0AE21AB3703E002C55A3 /* BoundUserDefaults.podspec */,
 				D00D0ABA1AB0CA08002C55A3 /* BoundUserDefaults */,
 				D00D0AC71AB0CA08002C55A3 /* BoundUserDefaultsTests */,
 				D00D0AB91AB0CA08002C55A3 /* Products */,
@@ -72,6 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				D00D0ABD1AB0CA08002C55A3 /* BoundUserDefaults.h */,
+				D00D0AE01AB1092E002C55A3 /* BoundUserDefaults.m */,
+				D00D0AD41AB0CC63002C55A3 /* DynamicPropertyResolver.h */,
+				D00D0AD51AB0CC63002C55A3 /* DynamicPropertyResolver.m */,
 				D00D0ABB1AB0CA08002C55A3 /* Supporting Files */,
 			);
 			path = BoundUserDefaults;
@@ -110,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00D0ABE1AB0CA08002C55A3 /* BoundUserDefaults.h in Headers */,
+				D00D0AD61AB0CC63002C55A3 /* DynamicPropertyResolver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00D0AE31AB3703E002C55A3 /* BoundUserDefaults.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +223,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D00D0AE11AB1092E002C55A3 /* BoundUserDefaults.m in Sources */,
+				D00D0AD71AB0CC63002C55A3 /* DynamicPropertyResolver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +410,7 @@
 				D00D0AD01AB0CA08002C55A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D00D0AD11AB0CA08002C55A3 /* Build configuration list for PBXNativeTarget "BoundUserDefaultsTests" */ = {
 			isa = XCConfigurationList;
@@ -402,6 +419,7 @@
 				D00D0AD31AB0CA08002C55A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
