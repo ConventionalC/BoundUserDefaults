@@ -3,7 +3,8 @@
 FOUNDATION_EXPORT double BoundUserDefaultsVersionNumber;
 FOUNDATION_EXPORT const unsigned char BoundUserDefaultsVersionString[];
 
-#import <BoundUserDefaults/DynamicPropertyResolver.h>
+//#import <BoundUserDefaults/DynamicPropertyResolver.h>
+#import "DynamicPropertyResolver.h"
 
 @interface BoundUserDefaults : DynamicPropertyResolver
     // Defaults to NSUserDefaults.standardUserDefaults
